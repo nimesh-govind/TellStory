@@ -19,6 +19,11 @@ function addSentence (sentence, db = connection) {
 }
 
 function getStartingSentence (db = connection){
+ return db('starter-sentences')
+  .select('starter-sentences.sentence as startingSentence')
+  .then((result) => ({
+   sentence: result[0].startingSentence
+  }))
 
 }
 
