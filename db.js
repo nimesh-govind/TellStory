@@ -1,10 +1,17 @@
-const environment = process.env.NODE_ENV || "development";
-const config = require("./knexfile")[environment];
-const connection = require("knex")(config);
+const knex = require('knex')
+const config = require("./knexfile").development
+const connection = knex(config);
 
 
 module.exports = {
-
+ addSentence,
 }
 
-function
+function addSentence (sentence, db = connection) {
+ return db('user-sentences')
+ .insert(sentence)
+ // .then((result) => {
+ //  console.log(result)
+ // })
+}
+
