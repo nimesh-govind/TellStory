@@ -5,22 +5,47 @@ const db = require('./db')
 const router = express.Router()
 module.exports = router
 
-router.get('/' (req, res) => {
-  // replace with actual db function
-  db.getSomething
-    .then(SomeingeElse // replace)
-  res.render('index', viewdata)
+router.get('/', (req, res) => {
+  db.getStartingSentence()
+    .then(viewData => {
+      res.render('home', viewData)
+    })
+    .catch((err) => {
+      res.status(500).send("DATABASE ERROR: " + err.message)
+    })
 })
 
-router.post("/addSomething", (req, res) => {
-  const { name, email, bio, url } = req.body
-  db.addProfile(name, email, url, bio)
-    .then(res.redirect("/"))
+router.get('/next-sentence', (req, res) => {
+  db.getUserSentence()
+    .then(viewData => {
+      res.render('next-sentence', viewData)
+    })
+    .catch((err) => {
+      res.status(500).send("DATABASE ERROR: " + err.message)
+    })
+})
+
+router.post("/add-sentence", (req, res) => {
+  const { sentence } = req.body
+  db.addSentence(sentence)
+    .then(res.redirect("/next-sentence"))
     .catch((err) => {
       console.log(err.message);
       res.status(500).send("Ohhh no an error: 500!")
     })
 })
+
+router.get('/display-story', (req, res) => {
+  db.getStory()
+    .then(viewData => {
+      res.render('story', viewData)
+    })
+    .catch((err) => {
+      res.status(500).send("DATABASE ERROR: " + err.message)
+    })
+})
+
+
 // router.get('/', (req, res) => {
 //   db.getRiders()
 //     .then(riders => {

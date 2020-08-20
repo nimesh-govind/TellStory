@@ -5,6 +5,9 @@ const connection = knex(config);
 
 module.exports = {
  addSentence,
+ getStartingSentence,
+ getUserSentence,
+ getStory
 }
 
 function addSentence (sentence, db = connection) {
@@ -13,5 +16,19 @@ function addSentence (sentence, db = connection) {
  // .then((result) => {
  //  console.log(result)
  // })
+}
+
+function getStartingSentence (db = connection){
+
+}
+
+function getUserSentence(db = conncetion)
+{
+
+}
+
+function getStory(db = conncetion)
+{
+
 }
 
