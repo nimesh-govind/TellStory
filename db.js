@@ -4,36 +4,46 @@ const connection = knex(config);
 
 
 module.exports = {
- addSentence,
- getStartingSentence,
- getUserSentence,
- getStory
+  addSentence,
+  getStartingSentence,
+  getUserSentence,
+  getStory
 }
 
-function addSentence (sentence, db = connection) {
- return db('user-sentences')
- .insert(sentence)
- // .then((result) => {
- //  console.log(result)
- // })
+function addSentence(sentence, db = connection) {
+  return db('user-sentences')
+    .insert({sentence})
 }
 
 function getStartingSentence (db = connection){
- return db('starter-sentences')
+return db('starter-sentences')
   .select('starter-sentences.sentence as startingSentence')
-  .then((result) => ({
-   sentence: result[0].startingSentence
-  }))
-
+  .then((result) => {
+  console.log(result)
+  sentence = {startingSentence: result[0].startingSentence}
+  console.log(sentence)
+  return sentence
+  })
 }
 
-function getUserSentence(db = conncetion)
+function getUserSentence(db = connection)
 {
-
+  return db('user-sentences')
+    .select('user-sentences.sentence as userSentence')
+    .then((result) => {
+      console.log(result)
+      sentence = { userSentence: result[result.length-1].userSentence }
+      console.log(sentence)
+      return sentence
+    })
 }
 
-function getStory(db = conncetion)
+
+function getStory(db = connection)
 {
-
+  return db('user-sentences')
+  .select('user-sentences.sentence as userSentence')
 }
+
+
 
