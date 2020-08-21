@@ -28,9 +28,8 @@ router.get('/next-sentence', (req, res) => {
 })
 
 router.post("/add-sentence", (req, res) => {
-  console.log('req body:', req.body)
   const sentence = req.body.sentence
-  console.log('sentence:', sentence)
+
   db.addSentence(sentence)
     .then(() => res.redirect("/next-sentence"))
     .catch((err) => {
@@ -42,11 +41,8 @@ router.post("/add-sentence", (req, res) => {
 router.get("/display-story",(req,res) => {
   db.getStartingSentence()
     .then(startingSentence => {
-      console.log('starting sentence1:', startingSentence)
       db.getStory()
       .then(story => {
-        console.log('starting sentence2:', startingSentence)
-        console.log('story:', story)
         res.render('display-story', {
           startingSentence: startingSentence.startingSentence,
           story: story
