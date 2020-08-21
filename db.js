@@ -12,7 +12,8 @@ module.exports = {
 
 var startingSentenceIdx = 0
 
-function setStartingSentence () {
+function setStartingSentence (db = connection) {
+  db.seed.run()
   startingSentenceIdx = Math.floor(Math.random() * 6)
   return startingSentenceIdx
 }
@@ -21,7 +22,6 @@ function getStartingSentence (db = connection){
 return db('starter-sentences')
   .select('starter-sentences.sentence as startingSentence')
   .then((result) => {
-    // const randomIdx = Math.floor(Math.random() * 6)
     return {startingSentence: result[startingSentenceIdx].startingSentence}
   })
 }
