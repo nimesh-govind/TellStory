@@ -3,15 +3,18 @@ const config = require("./knexfile").development
 const connection = knex(config);
 
 module.exports = {
-  addSentence,
+  setStartingSentence,
   getStartingSentence,
+  addSentence,
   getUserSentence,
   getStory
 }
 
-function addSentence(sentence, db = connection) {
-  return db('user-sentences')
-    .insert({sentence})
+var startingSentenceIdx = 0
+
+function setStartingSentence () {
+  startingSentenceIdx = Math.floor(Math.random() * 6)
+  return startingSentenceIdx
 }
 
 function getStartingSentence (db = connection){
@@ -19,8 +22,13 @@ return db('starter-sentences')
   .select('starter-sentences.sentence as startingSentence')
   .then((result) => {
     // const randomIdx = Math.floor(Math.random() * 6)
-    return {startingSentence: result[0].startingSentence}
+    return {startingSentence: result[startingSentenceIdx].startingSentence}
   })
+}
+
+function addSentence(sentence, db = connection) {
+  return db('user-sentences')
+    .insert({sentence})
 }
 
 function getUserSentence (db = connection) {

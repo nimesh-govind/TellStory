@@ -6,6 +6,7 @@ const router = express.Router()
 module.exports = router
 
 router.get('/', (req, res) => {
+  db.setStartingSentence()
   db.getStartingSentence()
     .then(viewData => {
       res.render('home', viewData)
