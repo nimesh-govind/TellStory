@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
     .catch((err) => {
       res.status(500).send("DATABASE ERROR: " + err.message)
     })
-  // res.render('home')
 })
 
 router.get('/next-sentence', (req, res) => {
@@ -24,7 +23,6 @@ router.get('/next-sentence', (req, res) => {
     .catch((err) => {
       res.status(500).send("DATABASE ERROR: " + err.message)
     })
-  // res.render('next-sentence')
 })
 
 router.post("/add-sentence", (req, res) => {
