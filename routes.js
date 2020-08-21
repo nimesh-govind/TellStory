@@ -29,7 +29,7 @@ router.get('/next-sentence', (req, res) => {
 
 router.post("/add-sentence", (req, res) => {
   console.log('req body:', req.body)
-  const sentence = req.body.title
+  const sentence = req.body.sentence
   console.log('sentence:', sentence)
   db.addSentence(sentence)
     .then(() => res.redirect("/next-sentence"))

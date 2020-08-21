@@ -20,7 +20,7 @@ return db('starter-sentences')
   .select('starter-sentences.sentence as startingSentence')
   .then((result) => {
   // console.log(result)
-  sentence = {startingSentence: result[0].startingSentence}
+  sentence = {startingSentence: result[0].sentence}
   // console.log(sentence)
   return sentence
   })
