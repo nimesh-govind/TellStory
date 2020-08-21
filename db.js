@@ -19,19 +19,26 @@ function getStartingSentence (db = connection){
 return db('starter-sentences')
   .select('starter-sentences.sentence as startingSentence')
   .then((result) => {
-  // console.log(result)
-  sentence = {startingSentence: result[0].sentence}
-  // console.log(sentence)
+  console.log(result)
+  sentence = {startingSentence: result[0].startingSentence}
+  console.log(sentence)
   return sentence
   })
 }
 
-function getUserSentence(db = conncetion)
+function getUserSentence(db = connection)
 {
-
+  return db('user-sentences')
+    .select('user-sentences.sentence as userSentence')
+    .then((result) => {
+      console.log(result)
+      sentence = { userSentence: result[result.length-1].sentence }
+      console.log(sentence)
+      return sentence
+    })
 }
 
-function getStory(db = conncetion)
+function getStory(db = connection)
 {
 
 }

@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
 })
 
 router.get('/next-sentence', (req, res) => {
-  // db.getUserSentence()
-  //   .then(viewData => {
-  //     res.render('next-sentence', viewData)
-  //   })
-  //   .catch((err) => {
-  //     res.status(500).send("DATABASE ERROR: " + err.message)
-  //   })
-  res.render('next-sentence')
+  db.getUserSentence()
+    .then(viewData => {
+      res.render('next-sentence', viewData)
+    })
+    .catch((err) => {
+      res.status(500).send("DATABASE ERROR: " + err.message)
+    })
+  // res.render('next-sentence')
 })
 
 router.post("/add-sentence", (req, res) => {
