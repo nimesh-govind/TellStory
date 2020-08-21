@@ -5,7 +5,7 @@ exports.seed = (knex) => {
     .then(function () {
       // Inserts seed entries
       return knex('starter-sentences').insert([
-        { id: 1, sentence: 'To save his life he would have to kill.'}
+        { id: 1, sentence: 'To save his life he would have to kill...'}
       ])
     })
 }

@@ -1,12 +1,9 @@
-<h1>Next Sentence</h1>
 
-<p>{{userSentence}}</p>
-
-
+  <p>Previous Sentence:</p>
+  <p><strong>{{userSentence}}</strong></p>
 <form action='/add-sentence' method="POST">
-  <label for="sentence">Write your following sentence here:</label><br>
-  <input type="text" id="sentence" name="sentence"><br> <br>
-  <input type="submit" value="Submit">
+  <label for="sentence">Write the following sentence here:</label><br>
+  <textarea type="text" id="sentence" name="sentence"></textarea><br> <br>
+  <input class="button" type="submit" value="Submit">
+  <button class="button1" type="button"><a class="link" href="/display-story">Generate Story</a></button> 
 </form>
-
-<a href="/display-story">Display story</a>

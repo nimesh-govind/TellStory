@@ -1,8 +1,21 @@
-<p>{{startingSentence}}</p>
 
-
+  <p>Starting Sentence:</p>
+  <p><strong>{{startingSentence}}</strong></p>
 <form action='/add-sentence' method="POST">
-  <label for="sentence">Write your following sentence here:</label><br>
-  <input type="text" id="sentence" name="sentence"><br> <br>
-  <input type="submit" value="Submit">
+  <label for="sentence">Write the following sentence here:</label><br>
+  <textarea type="text" id="sentence" name="sentence"></textarea><br> <br>
+  <input class="button" type="submit" value="Submit">
 </form>
+
+<p class= "centre">How to Play...</p>
+<div class="instructions">
+<ol>
+  <li>First player will be presented with a given sentence to start the story with.</li><br>
+  <li>They will need need to write their first sentence in the above box with the entry.</li><br>
+  <li>Once completed, they need to click on the 'Add Sentence' button to submit their sentence entry</li><br>
+  <li>They will then be taken to the next page which will present the last entry and the option to add their entry to follow.</li><br>
+  <li>Repeat steps 2 and 3 for the desired amount of entries</li><br>
+  <li>Once all player have added their entry, click 'Generate Story' to view all entries that make the story.</li>
+  <p class= "centre"><strong>Enjoy your story!!!</strong></p> 
+</ol>
+</div>
