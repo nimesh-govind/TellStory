@@ -32,7 +32,7 @@ function getUserSentence(db = connection)
     .select('user-sentences.sentence as userSentence')
     .then((result) => {
       console.log(result)
-      sentence = { userSentence: result[result.length-1].sentence }
+      sentence = { userSentence: result[result.length-1].userSentence }
       console.log(sentence)
       return sentence
     })
