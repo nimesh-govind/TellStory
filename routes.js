@@ -6,14 +6,14 @@ const router = express.Router()
 module.exports = router
 
 router.get('/', (req, res) => {
-  // db.getStartingSentence()
-  //   .then(viewData => {
-  //     res.render('home', viewData)
-  //   })
-  //   .catch((err) => {
-  //     res.status(500).send("DATABASE ERROR: " + err.message)
-  //   })
-  res.render('home')
+  db.getStartingSentence()
+    .then(viewData => {
+      res.render('home', viewData)
+    })
+    .catch((err) => {
+      res.status(500).send("DATABASE ERROR: " + err.message)
+    })
+  // res.render('home')
 })
 
 router.get('/next-sentence', (req, res) => {
