@@ -10,12 +10,9 @@ module.exports = {
   getStory
 }
 
-function addSentence (sentence, db = connection) {
+function addSentence(sentence, db = connection) {
   return db('user-sentences')
-  .insert(sentence)
- // .then((result) => {
- //  console.log(result)
- // })
+    .insert({sentence})
 }
 
 function getStartingSentence (db = connection){

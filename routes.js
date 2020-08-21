@@ -28,9 +28,11 @@ router.get('/next-sentence', (req, res) => {
 })
 
 router.post("/add-sentence", (req, res) => {
-  const { sentence } = req.body
+  console.log('req body:', req.body)
+  const sentence = req.body.title
+  console.log('sentence:', sentence)
   db.addSentence(sentence)
-    .then(res.redirect("/next-sentence"))
+    .then(() => res.redirect("/next-sentence"))
     .catch((err) => {
       console.log(err.message);
       res.status(500).send("Ohhh no an error: 500!")
