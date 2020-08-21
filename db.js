@@ -38,8 +38,12 @@ function getUserSentence(db = connection)
     })
 }
 
+
 function getStory(db = connection)
 {
-
+  return db('user-sentences')
+  .select('user-sentences.sentence as userSentence')
 }
+
+
 

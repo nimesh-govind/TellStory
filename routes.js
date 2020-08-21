@@ -39,37 +39,22 @@ router.post("/add-sentence", (req, res) => {
     })
 })
 
-router.get('/display-story', (req, res) => {
-  // db.getStory()
-  //   .then(viewData => {
-  //     res.render('story', viewData)
-  //   })
-  //   .catch((err) => {
-  //     res.status(500).send("DATABASE ERROR: " + err.message)
-  //   })
-  res.render('display-story')
-})
-
-
-// router.get('/', (req, res) => {
-//   db.getRiders()
-//     .then(riders => {
-//       const viewData = {
-//         riders: riders
-//       }
-//       res.render('home', viewData)
-//     })
-// })
-
-// router.get('/rider/:id', (req, res) => {
-//   const id = Number(req.params.id)
-//   db.getRiderById(id)
-//     .then(viewData => {
-//       res.render('rider', viewData)
-//     })
-//     .catch(err => {
-//       // Security best practice violation:
-//       // Should not show error messages to users/hackers
-//       res.status(500).send(err.message)
-//     })
-// })
+router.get("/display-story",(req,res) => {
+  db.getStartingSentence()
+    .then(startingSentence => {
+      console.log('starting sentence1:', startingSentence)
+      db.getStory()
+      .then(story => {
+        console.log('starting sentence2:', startingSentence)
+        console.log('story:', story)
+        res.render('display-story', {
+          startingSentence: startingSentence.startingSentence,
+          story: story
+        })}
+      )
+    })
+    .catch((err) => {
+      console.log(err.message);
+      res.status(500).send("Ohhh no an error: 500!")
+    })
+  })
