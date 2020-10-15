@@ -1,7 +1,7 @@
 # TellStory
 
 TellStory is a simple and entertaining story generator which takes a sentence and gets the user to build a new 
-sentence of the last one. This continues around all the users. Once completed, the full story can be generated.
+sentence based off the last one. This continues around all the users. Once completed, the full story can be generated.
 
 ## Description
 
