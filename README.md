@@ -29,13 +29,13 @@ nmp install
 ```
 npm run dev
 ```
-* The webpage is accessable at http://localhost:3000/
+* The webpage is accessable at http://localhost:3000/ once the server is running successfully. 
 
 ## Authors
 
 Contributors
 
-Matt Silver 
-Karishma Patel
-Kahy Leary 
-Nimesh Govind
+* Matt Silver 
+* Karishma Patel
+* Kahy Leary 
+* Nimesh Govind
