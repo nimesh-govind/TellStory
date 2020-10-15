@@ -17,19 +17,19 @@ have had thier turn. Once the story has been generated, you have the option to r
 
 ### Installing
 
-* Clone the repo down
-*To install current project dependencies
+* Clone the repo down to your local machine
+* To install current project dependencies
 ```
 nmp install 
 ```
 
 ### Executing program
 
-* How to run the program
-To run the server, enter the below in your command line:
+* To run the server, enter the below in your command line:
 ```
 npm run dev
 ```
+* The webpage is accessable at http://localhost:3000/
 
 ## Authors
 
