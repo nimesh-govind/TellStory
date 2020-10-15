@@ -9,8 +9,8 @@ This game was created as a way of practising newly learnt skills within the dev 
 an input, stores it in a table, then presents the last input while also recording the new input. It 
 then merges all the inputs to generate the story.
 
-It has a very simple UI with a landing page which has a table of starting sentences which are pulled 
-at random. It also has a submit button to submit an entry and a generate story button when all users 
+It has a very simple UI with a landing page which has a initial starting sentence pulled 
+at random. It also has an input area, submit button to submit an entry and a generate story button when all users 
 have had thier turn. Once the story has been generated, you have the option to restart the game.
 
 ## Getting Started
